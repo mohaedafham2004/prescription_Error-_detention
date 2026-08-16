@@ -1,0 +1,35 @@
+{
+  "image": "test_image_8.jpeg",
+  "medications": [
+    {
+      "drug": "Fluoxetine",
+      "strength": "20mg",
+      "frequency": "BD",
+      "duration": null
+    },
+    {
+      "drug": "Clomipramine",
+      "strength": "100mg",
+      "frequency": "OD",
+      "duration": null
+    },
+    {
+      "drug": "Mirtazapine",
+      "strength": "15mg",
+      "frequency": "OD",
+      "duration": null
+    },
+    {
+      "drug": "Risperidone",
+      "strength": "20mg",
+      "frequency": "BD",
+      "duration": null
+    },
+    {
+      "drug": "Clonazepam",
+      "strength": "1mg",
+      "frequency": "BD",
+      "duration": null
+    }
+  ]
+}

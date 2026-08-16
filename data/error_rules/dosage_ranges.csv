@@ -1,0 +1,35 @@
+medicine,min_dose_mg,max_dose_mg,unit,frequency_note
+Amoxicillin,125,3000,mg,Two to three times daily; max 3g/day
+Paracetamol,250,4000,mg,Every 4-6 hours; max 4g/day
+Ibuprofen,200,2400,mg,Every 6-8 hours; max 2.4g/day
+Metformin,500,2550,mg,Once to three times daily with meals
+Atorvastatin,10,80,mg,Once daily
+Omeprazole,10,40,mg,Once to twice daily
+Amlodipine,2.5,10,mg,Once daily
+Lisinopril,2.5,40,mg,Once daily
+Azithromycin,250,1500,mg,Once daily for 3-5 days
+Cetirizine,5,20,mg,Once daily
+Ciprofloxacin,250,1500,mg,Twice daily
+Doxycycline,50,300,mg,Once to twice daily
+Metronidazole,200,1500,mg,Two to three times daily
+Prednisolone,2.5,60,mg,Once daily (taper required)
+Salbutamol,0.1,8,mg,As needed; inhaled doses in mg equivalent
+Aspirin,75,4000,mg,Once daily (75mg) to 1g every 4h for pain
+Clopidogrel,75,300,mg,Once daily; 300mg loading dose only
+Losartan,25,100,mg,Once to twice daily
+Pantoprazole,20,80,mg,Once to twice daily
+Diclofenac,25,150,mg,Two to three times daily; max 150mg/day
+Warfarin,1,10,mg,Once daily; individualized per INR target
+Clarithromycin,250,1000,mg,Twice daily; max 1g/day
+Simvastatin,5,40,mg,Once daily at night; max 40mg/day
+Theophylline,200,900,mg,Once to twice daily sustained release
+Fluoxetine,10,80,mg,Once daily in morning; max 80mg/day
+Sertraline,25,200,mg,Once daily morning or evening; max 200mg/day
+Tramadol,25,400,mg,Every 4-6 hours PRN; max 400mg/day
+Naproxen,220,1500,mg,Twice daily; max 1500mg/day
+Rosuvastatin,5,40,mg,Once daily; max 40mg/day
+Levofloxacin,250,750,mg,Once daily
+Metoprolol,25,400,mg,Once to twice daily
+Bisoprolol,1.25,20,mg,Once daily
+Atenolol,25,100,mg,Once daily
+Carvedilol,3.125,50,mg,Twice daily with food

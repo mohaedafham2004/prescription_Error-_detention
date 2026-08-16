@@ -1,0 +1,11 @@
+{
+  "image": "test_image_2.jpeg",
+  "medications": [
+    {
+      "drug": "Iron",
+      "strength": "50g",
+      "frequency": "BD",
+      "duration": null
+    }
+  ]
+}

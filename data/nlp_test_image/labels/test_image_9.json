@@ -1,0 +1,23 @@
+{
+  "image": "test_image_9.jpeg",
+  "medications": [
+    {
+      "drug": "Acyclovir",
+      "strength": "Cream",
+      "frequency": "BD",
+      "duration": null
+    },
+    {
+      "drug": "Emollient",
+      "strength": "Cream",
+      "frequency": "TDS",
+      "duration": null
+    },
+    {
+      "drug": "Antifungal",
+      "strength": "Powder",
+      "frequency": "5 times/day",
+      "duration": "5 days"
+    }
+  ]
+}

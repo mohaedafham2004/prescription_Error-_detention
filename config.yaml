@@ -1,0 +1,61 @@
+# Smart Prescription Error Detection — Project Configuration
+# ─────────────────────────────────────────────────────────────
+# Edit this file to change model paths or switch the active OCR model.
+# Switching from TrOCR to CNN later is a one-line change: active_ocr_model: "cnn"
+# No code changes required.
+
+# ── OCR Model Selection ───────────────────────────────────────
+# Options: "trocr" | "cnn" | "ensemble" (future)
+active_ocr_model: "trocr"
+
+# ── CNN Character Recognition Settings ────────────────────────
+cnn_model_path: "models/cnn_character/best_model.pt"
+cnn_label_map_path: "models/cnn_character/label_map.json"
+
+# ── TrOCR Settings ────────────────────────────────────────────
+trocr_model_path: "models/trocr_finetuned"
+
+# Set to true to load the base pretrained model directly from HuggingFace Hub
+# (useful for testing before you have a fine-tuned model downloaded).
+# Set to false to load your locally fine-tuned model from trocr_model_path.
+trocr_use_pretrained: true
+
+# HuggingFace model name — only used when trocr_use_pretrained = true
+# Options: "microsoft/trocr-base-handwritten" | "microsoft/trocr-small-handwritten"
+# trocr-small is ~4x faster on CPU and often better on small datasets.
+trocr_model_name: "microsoft/trocr-small-handwritten"
+
+# Maximum decoder tokens per line image
+trocr_max_new_tokens: 64
+
+# ── Confidence & Fallback ─────────────────────────────────────
+# Lines with OCR confidence below this threshold will be flagged.
+# (CNN fallback will use this once the CNN model is trained.)
+confidence_threshold: 0.6
+
+# ── NER Settings ──────────────────────────────────────────────
+ner_model_path: "models/ner_model"
+
+# Set false to skip NER step (e.g. model not trained yet)
+ner_enabled: true
+
+# Active NER model — options: "spacy" | "hf_clinical"
+#   "spacy"       → your custom-trained spaCy model (models/ner_model/)
+#                   Best for YOUR prescription corpus. Use this as default.
+#   "hf_clinical" → Posos/ClinicalNER from Hugging Face Hub (no training needed)
+#                   Good fallback before your custom model is trained.
+# Switching is a one-line change — no code changes required.
+active_ner_model: "spacy"
+
+# HuggingFace model identifier — only used when active_ner_model = "hf_clinical"
+hf_ner_model_name: "Posos/ClinicalNER"
+
+
+# ── Error Detection Settings ──────────────────────────────────
+error_rules_dir: "data/error_rules"
+
+# Minimum fuzzy-match score (0-100) to accept a medicine name as a known spelling
+fuzzy_match_threshold: 80
+
+# ── Dashboard ─────────────────────────────────────────────────
+dashboard_title: "Smart Prescription Error Detection"
