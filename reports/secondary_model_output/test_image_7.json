@@ -1,0 +1,23 @@
+{
+  "image": "test_image_7.jpeg",
+  "medications": [
+    {
+      "drug": "Gliclazide",
+      "strength": "80mg",
+      "frequency": "BD",
+      "duration": null
+    },
+    {
+      "drug": "Insulin Mixtard",
+      "strength": "100 IU/ml",
+      "frequency": "BD",
+      "duration": null
+    },
+    {
+      "drug": "Metformin",
+      "strength": "500mg",
+      "frequency": "BD",
+      "duration": null
+    }
+  ]
+}

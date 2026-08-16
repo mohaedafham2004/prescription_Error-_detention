@@ -1,4 +1,6 @@
-﻿__pycache__/
+﻿.agents/
+.claude/
+__pycache__/
 *.py[cod]
 venv/
 .venv/

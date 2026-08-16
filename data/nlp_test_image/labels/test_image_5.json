@@ -1,0 +1,17 @@
+{
+  "image": "test_image_5.jpeg",
+  "medications": [
+    {
+      "drug": "Rabeprazole",
+      "strength": null,
+      "frequency": "HS",
+      "duration": null
+    },
+    {
+      "drug": "Deflazacort",
+      "strength": "0.5mg",
+      "frequency": "HS",
+      "duration": null
+    }
+  ]
+}

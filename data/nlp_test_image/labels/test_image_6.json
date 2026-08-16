@@ -1,0 +1,23 @@
+{
+  "image": "test_image_6.jpeg",
+  "medications": [
+    {
+      "drug": "Aspirin",
+      "strength": "100mg",
+      "frequency": null,
+      "duration": null
+    },
+    {
+      "drug": "Pantoprazole",
+      "strength": "40mg",
+      "frequency": null,
+      "duration": null
+    },
+    {
+      "drug": "Nermigan",
+      "strength": null,
+      "frequency": "OD",
+      "duration": null
+    }
+  ]
+}

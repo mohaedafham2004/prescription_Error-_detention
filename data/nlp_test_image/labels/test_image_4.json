@@ -1,0 +1,59 @@
+{
+  "image": "test_image_4.jpeg",
+  "medications": [
+    {
+      "drug": "Enoxaparin",
+      "strength": "60mg",
+      "frequency": "BD",
+      "duration": "48 hours"
+    },
+    {
+      "drug": "Aspirin",
+      "strength": "75mg",
+      "frequency": "OD",
+      "duration": null
+    },
+    {
+      "drug": "Clopidogrel",
+      "strength": "75mg",
+      "frequency": "OD",
+      "duration": null
+    },
+    {
+      "drug": "Atorvastatin",
+      "strength": "40mg",
+      "frequency": "OD",
+      "duration": null
+    },
+    {
+      "drug": "Bisoprolol",
+      "strength": "2.5mg",
+      "frequency": "BD",
+      "duration": null
+    },
+    {
+      "drug": "Spironolactone",
+      "strength": "25mg",
+      "frequency": "OD",
+      "duration": null
+    },
+    {
+      "drug": "Nicorandil",
+      "strength": "10mg",
+      "frequency": "BD",
+      "duration": null
+    },
+    {
+      "drug": "Pantoprazole",
+      "strength": "40mg",
+      "frequency": "BD",
+      "duration": null
+    },
+    {
+      "drug": "Glyceryl Trinitrate",
+      "strength": "1 tab",
+      "frequency": "PRN",
+      "duration": null
+    }
+  ]
+}

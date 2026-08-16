@@ -1,0 +1,19 @@
+drug_a,drug_b,severity,note,recommendation
+Aspirin,Warfarin,HIGH,Concurrent use substantially increases risk of major gastrointestinal and systemic hemorrhage.,Avoid combination unless monitored with regular INR checks.
+Aspirin,Clopidogrel,MODERATE,Increased bleeding risk; often intentional dual antiplatelet (DAPT) — verify intent.,Confirm indication with prescribing cardiologist and monitor for signs of bleeding.
+Aspirin,Ibuprofen,MODERATE,NSAIDs may reduce cardioprotective effect of aspirin and increase GI ulceration risk.,Take Ibuprofen at least 2 hours after immediate-release Aspirin or consider Paracetamol for analgesia.
+Atorvastatin,Clarithromycin,HIGH,Clarithromycin is a potent CYP3A4 inhibitor that markedly increases serum Atorvastatin concentrations raising rhabdomyolysis risk.,Temporarily suspend Atorvastatin during macrolide therapy or use an alternative antibiotic (e.g. Azithromycin).
+Simvastatin,Amlodipine,MODERATE,Amlodipine increases Simvastatin exposure via CYP3A4 inhibition increasing myopathy risk.,Limit Simvastatin dose to a maximum of 20mg daily when co-administered with Amlodipine.
+Ciprofloxacin,Theophylline,HIGH,Ciprofloxacin inhibits theophylline clearance via CYP1A2 risking toxic theophylline levels and tachyarrhythmias.,Reduce theophylline dosage by 50% or switch to an alternative antimicrobial.
+Azithromycin,Ciprofloxacin,HIGH,Concomitant use of multiple QT-prolonging agents significantly elevates risk of Torsades de Pointes and fatal arrhythmias.,Avoid concurrent use; check baseline ECG/QTc interval if combined therapy is unavoidable.
+Tramadol,Fluoxetine,HIGH,Co-administration increases risk of life-threatening Serotonin Syndrome and lowers the seizure threshold.,Monitor for tremors agitation hyperreflexia; consider alternative pain management.
+Tramadol,Sertraline,HIGH,Concomitant use may precipitate serotonin toxicity and diminish Tramadol analgesic efficacy.,Use caution and monitor for neurological changes and autonomic instability.
+Omeprazole,Clopidogrel,MODERATE,Omeprazole inhibits CYP2C19 required to convert Clopidogrel into its active antiplatelet metabolite potentially increasing thrombotic risk.,Switch to Pantoprazole or Rabeprazole which exhibit significantly less CYP2C19 inhibition.
+Prednisolone,Ibuprofen,HIGH,Concurrent NSAID + corticosteroid greatly increases GI bleeding risk.,Co-prescribe gastroprotection (PPI) or consider non-NSAID analgesics.
+Prednisolone,Diclofenac,HIGH,Concurrent NSAID + corticosteroid greatly increases GI bleeding risk.,Co-prescribe gastroprotection (PPI) or consider non-NSAID analgesics.
+Metformin,Ciprofloxacin,LOW,Ciprofloxacin may enhance hypoglycaemic effect or cause dysglycemia.,Carefully monitor blood glucose levels during antimicrobial course.
+Atorvastatin,Ciprofloxacin,LOW,Minor CYP3A4 interaction; monitor for myopathy symptoms.,Monitor patient for unexplained muscle pain or weakness.
+Metronidazole,Aspirin,LOW,No significant interaction; listed for completeness.,Routine monitoring.
+Amlodipine,Ciprofloxacin,LOW,Minor CYP3A4 interaction; usually clinically insignificant.,Standard clinical monitoring.
+Losartan,Ibuprofen,MODERATE,NSAIDs may reduce antihypertensive effect and impair renal function.,Avoid chronic NSAID use in hypertensive patients; monitor blood pressure and renal function.
+Lisinopril,Ibuprofen,MODERATE,NSAIDs reduce renal blood flow counteracting antihypertensive effect and risking acute kidney injury.,Monitor blood pressure and renal function (eGFR/Creatinine); consider non-NSAID alternatives.
