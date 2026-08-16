@@ -1,10 +1,36 @@
-# prescription-error-detection-system
-This is our 5th semester NLP module project 
+# 💊 Smart Prescription Error Detection Using NLP
 
+An NLP-based healthcare application that analyzes prescription text and identifies potential medication-related errors such as incorrect dosages, invalid drug names, missing information, and potentially dangerous drug interactions.
 
-## Group Information
+> **5th Semester NLP Module Project**
 
-**Group Number:** (Your Group Number)
+---
+
+## 📌 Project Overview
+
+Medication errors are a serious healthcare concern. Incorrect drug names, dosage mistakes, drug interactions, and incomplete prescription instructions can potentially lead to adverse health outcomes.
+
+The **Smart Prescription Error Detection System** aims to use **Natural Language Processing (NLP), Machine Learning (ML), Deep Learning (DL), and rule-based validation** to automatically analyze prescription text and identify potential risks.
+
+The system extracts important information such as:
+
+* 💊 Drug names
+* 📏 Dosages
+* ⏰ Frequencies
+* 📋 Administration instructions
+* ⚠️ Potential medication errors
+
+The detected information is then analyzed using machine learning/deep learning models and predefined validation rules.
+
+### ⚠️ Important Disclaimer
+
+This project is an **academic prototype** developed for educational purposes. It is **not a medical diagnostic system** and must not replace doctors, pharmacists, or other qualified healthcare professionals.
+
+---
+
+# 👥 Group Information
+
+**Group Number:** *To be updated*
 
 **Project Title:** Smart Prescription Error Detection Using NLP
 
@@ -16,426 +42,684 @@ This is our 5th semester NLP module project
 
 ---
 
-# Section 1 – Project Overview
+# 🎯 Project Objectives
 
-## 1. What NLP problem/application are you attempting to solve?
+The main objectives of this project are to:
 
-The healthcare industry depends heavily on accurate prescriptions to ensure patient safety. However, prescription errors such as incorrect drug names, dosage mistakes, dangerous drug interactions, and missing instructions can lead to severe health complications. Manual prescription verification is time-consuming and prone to human error. Our project aims to develop an NLP-based Prescription Error Detection System that automatically analyzes prescription text and identifies potential mistakes. The system will process textual prescriptions using Natural Language Processing techniques. It will extract drug names, dosages, frequencies, and administration instructions from prescriptions. The extracted information will then be validated against medical knowledge sources and predefined rules. Machine Learning and Deep Learning models will be used to classify prescriptions as safe or potentially problematic. The system will also provide explanations for detected errors. Healthcare professionals can use the tool to improve prescription accuracy. This solution aims to reduce medication errors and enhance patient safety. Ultimately, the project demonstrates the practical application of NLP in healthcare.
-
----
-
-## 2. Why is this problem important?
-
-Medication errors are among the leading causes of preventable healthcare complications worldwide. Incorrect prescriptions may result in adverse drug reactions, overdoses, or ineffective treatment. Pharmacists and healthcare providers often handle large volumes of prescriptions daily, increasing the likelihood of mistakes.
-
-### Intended Users
-
-* Pharmacists
-* Doctors
-* Hospitals
-* Medical students
-
-### Value Provided
-
-* Early detection of prescription errors
-* Improved patient safety
-* Reduced healthcare costs
-* Faster prescription verification process
-* Decision support for healthcare professionals
+1. Process prescription-related medical text using NLP techniques.
+2. Extract drug names, dosage information, frequencies, and instructions.
+3. Detect potentially incorrect or risky prescription information.
+4. Compare different Machine Learning classification algorithms.
+5. Compare different Deep Learning models.
+6. Implement rule-based medication validation.
+7. Provide understandable explanations for detected risks.
+8. Evaluate the performance of different models using standard classification metrics.
+9. Develop a simple web-based interface for prescription analysis.
 
 ---
 
-## 3. What will be the final output of your application?
+# 🧠 NLP Problem
 
-### Final Output
+The system focuses on **medical text processing and prescription error classification**.
 
-The system will generate:
+The general process is:
 
-* Classification Label:
+```text
+Prescription Text
+       │
+       ▼
+Text Preprocessing
+       │
+       ▼
+Named Entity Recognition
+       │
+       ▼
+Drug / Dosage / Frequency Extraction
+       │
+       ▼
+Feature Extraction
+       │
+       ▼
+ML / DL Classification
+       │
+       ▼
+Rule-Based Validation
+       │
+       ▼
+Error Detection
+       │
+       ▼
+Final Result
+```
 
-  * Safe Prescription
-  * Risky Prescription
+---
 
-* Error Detection Results:
+# 🔍 Types of Errors
 
-  * Wrong Dosage
-  * Drug Interaction
-  * Missing Information
-  * Invalid Drug Name
+The proposed system focuses on detecting potential prescription problems such as:
 
-* Confidence Score
+| Error Type               | Description                                          |
+| ------------------------ | ---------------------------------------------------- |
+| 💊 Invalid Drug Name     | Drug name cannot be recognized or validated          |
+| 📏 Wrong Dosage          | Potentially inappropriate dosage information         |
+| ⚠️ Drug Interaction      | Potential interaction between prescribed medications |
+| 📋 Missing Information   | Important prescription information is missing        |
+| ❓ Ambiguous Instructions | Instructions are unclear or incomplete               |
+
+---
+
+# 🖥️ Expected Application Output
+
+The application will provide:
+
+### Classification
+
+* ✅ **Safe Prescription**
+* ⚠️ **Risky Prescription**
+
+### Error Information
+
+* Error type
+* Detected medication
+* Explanation
+* Confidence score
 
 ### Example
 
-Input:
+**Input**
 
+```text
 Metformin 500mg twice daily
 Warfarin 5mg daily
+```
 
-Output:
+**Expected Output**
 
-Risky Prescription
+```text
+Classification: Risky Prescription
 
-Reason:
-Potential Drug Interaction Detected
+Potential Issue:
+Drug Interaction Detected
 
 Confidence:
 95%
+```
+
+> The displayed result is an example for demonstrating the system workflow and does not represent clinical advice.
 
 ---
 
-# Section 2 – Dataset Information
+# 📊 Dataset
 
-## 4. Dataset Details
+## MTSamples Medical Transcriptions Dataset
 
-### Dataset Name
+The project uses the **MTSamples Medical Transcriptions Dataset** as the primary source of medical text.
 
-MTSamples Medical Transcriptions Dataset
+**Dataset:** MTSamples Medical Transcriptions
+
+**Source:** Kaggle
+
+The dataset contains approximately **5,000 medical transcription records** covering multiple medical specialties.
+
+The dataset provides realistic medical language that can be useful for experimenting with:
+
+* Medical text preprocessing
+* Medical terminology extraction
+* Named Entity Recognition
+* Text classification
+* Feature engineering
+* NLP model development
 
 ### Dataset Source
 
-[Kaggle MTSamples Dataset](https://www.kaggle.com/datasets/tboyle10/medicaltranscriptions?utm_source=chatgpt.com)
-
-### Number of Records
-
-Approximately 5,000 medical transcription records
-
-### Number of Classes
-
-Multiple medical specialties
+https://www.kaggle.com/datasets/tboyle10/medicaltranscriptions
 
 ---
 
-## 5. Why is this dataset suitable?
+# ⚠️ Dataset Challenges
 
-The dataset contains real-world medical transcription text with medication-related information. It provides rich healthcare language suitable for NLP tasks such as entity extraction and classification. Prescription-related patterns can be extracted and transformed into structured information. The dataset is freely available and contains sufficient textual content for training ML and DL models.
+The dataset presents several NLP challenges.
 
----
+### 1. Noisy Text
 
-## 6. What challenges exist within the dataset?
+Medical transcription data may contain:
 
-### Challenges
-
-**Noisy Text**
-
-* Medical abbreviations
+* Abbreviations
 * Typographical variations
+* Formatting inconsistencies
+* Unstructured text
 
-**Class Imbalance**
+### 2. Medical Terminology
 
-* Some medical categories have fewer records
+Medical documents contain specialized vocabulary that can be difficult for general NLP models to interpret.
 
-**Medical Terminology**
+### 3. Context Dependency
 
-* Complex vocabulary
+The meaning of medical terms can depend heavily on the surrounding context.
 
-**Context Dependency**
+### 4. Class Imbalance
 
-* Similar drugs may have different meanings depending on context
+Some medical categories may contain significantly more examples than others.
 
-**Ethical Concerns**
+### 5. Prescription-Specific Data
 
-* Medical recommendations must not replace professional judgment
+The MTSamples dataset is primarily a **medical transcription dataset**, rather than a dedicated prescription-error dataset. Therefore, prescription-related information may need to be extracted and transformed into suitable training examples.
 
 ---
 
-# Section 3 – Individual NLP Pipeline
+# 🤖 Machine Learning & Deep Learning Models
 
-## Member 01 – M.F.M. Afham
+Each group member is responsible for implementing different ML and DL models.
+
+| Member        | Machine Learning | Deep Learning |
+| ------------- | ---------------- | ------------- |
+| M.F.M. Afham  | SVM              | LSTM          |
+| M.L. Abdullah | Random Forest    | BiLSTM        |
+| M.U. Sahy     | XGBoost          | GRU           |
+
+---
+
+# 👨‍💻 Member Contributions
+
+## Member 01 — M.F.M. Afham
 
 ### NLP Pipeline
 
-| Step                 | Justification                        |
-| -------------------- | ------------------------------------ |
-| Data Collection      | Gather medical text data             |
-| Text Cleaning        | Remove noise and unwanted characters |
-| Tokenization         | Split text into words                |
-| Stop Word Removal    | Reduce unnecessary words             |
-| TF-IDF Vectorization | Convert text into numerical features |
-| Model Training       | Train classification model           |
-| Evaluation           | Measure performance                  |
+```text
+Data Collection
+      ↓
+Text Cleaning
+      ↓
+Tokenization
+      ↓
+Stop Word Removal
+      ↓
+TF-IDF Vectorization
+      ↓
+Model Training
+      ↓
+Evaluation
+```
 
-### ML Model Selected
+### ML Model
 
 **Support Vector Machine (SVM)**
 
-### Why?
+SVM is suitable for high-dimensional text classification problems and is commonly used with sparse features such as TF-IDF.
 
-SVM performs well on high-dimensional text classification tasks and is widely used in NLP.
+### DL Model
 
-### DL Model Selected
+**Long Short-Term Memory (LSTM)**
 
-**LSTM**
+LSTM networks can capture sequential dependencies within medical text.
 
-### Why?
+### Responsibilities
 
-LSTM captures long-term dependencies and sequential relationships in prescription text.
-
-### Contribution
-
+* Dataset collection
 * Data preprocessing
+* Text cleaning
 * Feature engineering
+* TF-IDF implementation
 * SVM implementation
-* Performance evaluation
+* Model evaluation
 
 ---
 
-## Member 02 – M.L. Abdullah
+## Member 02 — M.L. Abdullah
 
 ### NLP Pipeline
 
-| Step                     | Justification              |
-| ------------------------ | -------------------------- |
-| Data Cleaning            | Remove inconsistencies     |
-| Lemmatization            | Reduce words to root form  |
-| Named Entity Recognition | Extract drug names         |
-| Feature Extraction       | Prepare model inputs       |
-| Training                 | Build classification model |
-| Validation               | Evaluate results           |
+```text
+Data Cleaning
+      ↓
+Lemmatization
+      ↓
+Named Entity Recognition
+      ↓
+Feature Extraction
+      ↓
+Model Training
+      ↓
+Validation
+```
 
-### ML Model Selected
+### ML Model
 
 **Random Forest**
 
-### Why?
+Random Forest can model nonlinear relationships between features and provides a robust baseline for classification.
 
-Random Forest is robust against overfitting and handles complex feature relationships.
+### DL Model
 
-### DL Model Selected
+**Bidirectional LSTM (BiLSTM)**
 
-**BiLSTM**
+BiLSTM processes sequences in both forward and backward directions, allowing the model to use contextual information from both sides of a word.
 
-### Why?
-
-BiLSTM captures context from both past and future words.
-
-### Contribution
+### Responsibilities
 
 * Named Entity Recognition
+* Drug entity extraction
+* Lemmatization
 * Random Forest implementation
-* Drug extraction module
+* Feature extraction
+* Model validation
 
 ---
 
-## Member 03 – M.U. Sahy
+## Member 03 — M.U. Sahy
 
 ### NLP Pipeline
 
-| Step                  | Justification                   |
-| --------------------- | ------------------------------- |
-| Text Normalization    | Standardize text                |
-| Word Embedding        | Create semantic representations |
-| Feature Selection     | Improve performance             |
-| Model Training        | Train DL model                  |
-| Error Detection Rules | Create medical validation rules |
-| Testing               | Verify outputs                  |
+```text
+Text Normalization
+      ↓
+Word Embedding
+      ↓
+Feature Selection
+      ↓
+Model Training
+      ↓
+Error Detection Rules
+      ↓
+Testing
+```
 
-### ML Model Selected
+### ML Model
 
 **XGBoost**
 
-### Why?
+XGBoost is a powerful gradient boosting algorithm that can model complex feature interactions.
 
-XGBoost provides strong classification performance and handles feature interactions effectively.
+### DL Model
 
-### DL Model Selected
+**Gated Recurrent Unit (GRU)**
 
-**GRU**
+GRU is a recurrent neural network architecture that generally uses fewer parameters than LSTM while maintaining the ability to model sequential information.
 
-### Why?
+### Responsibilities
 
-GRU requires fewer parameters and trains faster than LSTM while maintaining good performance.
-
-### Contribution
-
-* Rule-based error detection
+* Text normalization
+* Word embedding
+* Feature selection
 * XGBoost implementation
+* Rule-based error detection
+* GRU implementation
 * Application integration
 
 ---
 
-# Section 4 – Model Comparison Plan
+# 📈 Model Evaluation
 
-## 7. Selected Models
-
-| Member   | ML Model      | DL Model |
-| -------- | ------------- | -------- |
-| Afham    | SVM           | LSTM     |
-| Abdullah | Random Forest | BiLSTM   |
-| Sahy     | XGBoost       | GRU      |
-
----
-
-## 8. Evaluation Metrics
-
-### Metrics
+The models will be evaluated using:
 
 * Accuracy
 * Precision
 * Recall
 * F1-Score
 
-### Justification
+### Why These Metrics?
 
-Accuracy alone may be misleading for imbalanced datasets. Precision measures how many detected errors are correct. Recall ensures dangerous prescriptions are not missed. F1-score balances precision and recall, making it suitable for healthcare applications.
+Accuracy alone may not be sufficient when dealing with imbalanced datasets.
 
----
+**Precision** measures how many predicted errors are actually errors.
 
-# Section 5 – Final Application Plan
+**Recall** measures how many actual errors are successfully detected.
 
-## 9. Application Type
+**F1-Score** provides a balance between precision and recall.
 
-### Web Application
-
-Free technologies:
-
-* Frontend: HTML, CSS, JavaScript
-* Backend: Python Flask
-* Database: SQLite
-* Deployment: Render Free Tier
+For a healthcare-related error detection system, **recall is particularly important** because failing to detect a potentially dangerous prescription may have serious consequences.
 
 ---
 
-## 10. Simple Workflow
+# 🏗️ System Architecture
+
+```text
+                         ┌─────────────────────┐
+                         │        User         │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │ Prescription Input │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │ Text Preprocessing  │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │ Named Entity        │
+                         │ Recognition         │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │ Feature Extraction  │
+                         └──────────┬──────────┘
+                                    │
+                      ┌─────────────┴─────────────┐
+                      │                           │
+                      ▼                           ▼
+             ┌────────────────┐          ┌─────────────────┐
+             │ ML / DL Models │          │ Validation Rules│
+             └────────┬───────┘          └────────┬────────┘
+                      │                           │
+                      └─────────────┬─────────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │ Error Classification│
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │ Final Result        │
+                         │ Safe / Risky        │
+                         └─────────────────────┘
+```
+
+---
+
+# 🌐 Web Application
+
+The final project will be implemented as a web application.
+
+### Workflow
 
 ```text
 User
   │
   ▼
-Upload Prescription Text
+Enter Prescription
   │
   ▼
-Text Preprocessing
+Submit
   │
   ▼
-Named Entity Recognition
+NLP Processing
   │
   ▼
-ML / DL Models
+Drug & Dosage Extraction
   │
   ▼
-Error Detection Rules
+ML / DL Prediction
   │
   ▼
-Prediction
+Rule-Based Validation
   │
   ▼
-Safe / Risky Prescription
+Error Analysis
+  │
+  ▼
+Result Dashboard
 ```
 
 ---
 
-# Section 6 – Workload & Git Management
+# 🛠️ Technology Stack
 
-## 11. Work Distribution
-
-| Task                     | Responsible Member |
-| ------------------------ | ------------------ |
-| Dataset Identification   | Afham              |
-| Data Preprocessing       | Afham              |
-| ML Model Development     | Abdullah           |
-| DL Model Development     | Sahy               |
-| Application Development  | All Members        |
-| Model Evaluation         | All Members        |
-| Report Writing           | Afham & Abdullah   |
-| Presentation Preparation | All Members        |
+| Component            | Technology                   |
+| -------------------- | ---------------------------- |
+| Programming Language | Python                       |
+| NLP                  | NLTK, spaCy                  |
+| Machine Learning     | Scikit-learn                 |
+| Deep Learning        | TensorFlow / Keras           |
+| ML Models            | SVM, Random Forest, XGBoost  |
+| DL Models            | LSTM, BiLSTM, GRU            |
+| Backend              | Flask                        |
+| Frontend             | HTML, CSS, JavaScript        |
+| Database             | SQLite                       |
+| Dataset              | MTSamples                    |
+| Version Control      | Git & GitHub                 |
+| Development          | VS Code                      |
+| Deployment           | Free hosting where available |
 
 ---
 
-## 12. Git Repository
-
-### Repository Link
-
-Create a free repository using:
-
-[GitHub](https://github.com?utm_source=chatgpt.com)
-
-Example:
+# 📁 Proposed Project Structure
 
 ```text
-https://github.com/afhamfaiz/prescription-error-detection
+prescription-error-detection-system/
+│
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── README.md
+│
+├── notebooks/
+│   ├── data-exploration.ipynb
+│   ├── preprocessing.ipynb
+│   ├── svm.ipynb
+│   ├── random-forest.ipynb
+│   ├── xgboost.ipynb
+│   ├── lstm.ipynb
+│   ├── bilstm.ipynb
+│   └── gru.ipynb
+│
+├── src/
+│   ├── preprocessing/
+│   ├── nlp/
+│   ├── models/
+│   ├── rules/
+│   └── evaluation/
+│
+├── app/
+│   ├── static/
+│   ├── templates/
+│   └── app.py
+│
+├── models/
+│   └── README.md
+│
+├── tests/
+│
+├── requirements.txt
+├── README.md
+├── .gitignore
+└── LICENSE
 ```
 
-### Branch Structure
+---
+
+# 👥 Work Distribution
+
+| Task                    | Responsible Member |
+| ----------------------- | ------------------ |
+| Dataset Identification  | Afham              |
+| Data Preprocessing      | Afham              |
+| ML Model Development    | Abdullah           |
+| DL Model Development    | Sahy               |
+| Application Development | All Members        |
+| Model Evaluation        | All Members        |
+| Report Writing          | Afham & Abdullah   |
+| Presentation            | All Members        |
+
+---
+
+# 🌿 Git Branch Strategy
+
+The project uses separate branches for individual development.
 
 ```text
 main
-
-afham-branch
-
-abdullah-branch
-
-sahy-branch
+│
+├── afham-branch
+│
+├── abdullah-branch
+│
+└── sahy-branch
 ```
 
----
+### Recommended Workflow
 
-# Section 7 – Ethics & Responsible AI
+```bash
+# Clone repository
+git clone https://github.com/YOUR-USERNAME/prescription-error-detection-system.git
 
-## 13. Potential Biases and Ethical Problems
+# Enter project
+cd prescription-error-detection-system
 
-* Dataset may not represent all medical conditions.
-* Medical terminology may vary by country.
-* Incorrect predictions could affect healthcare decisions.
-* Training data may contain historical biases.
+# Create/switch to your branch
+git checkout -b afham-branch
 
----
+# Check changes
+git status
 
-## 14. Could the system produce harmful outputs?
+# Add changes
+git add .
 
-Yes.
+# Commit
+git commit -m "Add NLP preprocessing pipeline"
 
-Examples:
+# Push branch
+git push -u origin afham-branch
+```
 
-* Missing a dangerous drug interaction.
-* Incorrectly flagging a safe prescription.
-* Misinterpreting abbreviations.
-
----
-
-## 15. How will risks be reduced?
-
-* Use multiple evaluation metrics.
-* Include rule-based verification.
-* Human pharmacist review before final decisions.
-* Use confidence thresholds.
-* Clearly state system limitations.
+Pull Requests should be used to merge completed work into `main`.
 
 ---
 
-## 16. Limitations
+# 🔐 Security & Privacy
 
-* Not a replacement for medical professionals.
-* Performance depends on dataset quality.
-* Limited coverage of rare medications.
-* Cannot guarantee 100% accuracy.
-* Requires continuous updates for new drugs.
+Because this project deals with healthcare-related text, privacy must be considered carefully.
+
+The application should:
+
+* Avoid storing real patient information.
+* Avoid using identifiable patient data during development.
+* Use anonymized or publicly available datasets.
+* Avoid exposing sensitive information through logs.
+* Clearly communicate that predictions are experimental.
 
 ---
 
-# Completely Free Tech Stack
+# ⚖️ Ethics & Responsible AI
 
-| Component       | Tool                   |
-| --------------- | ---------------------- |
-| Programming     | Python                 |
-| NLP             | NLTK, spaCy            |
-| ML              | Scikit-Learn           |
-| DL              | TensorFlow / Keras     |
-| Dataset         | Kaggle Medical Dataset |
-| Database        | SQLite                 |
-| Backend         | Flask                  |
-| Frontend        | HTML/CSS/JS            |
-| Version Control | GitHub                 |
-| Deployment      | Render Free Tier       |
-| Development     | VS Code                |
+Potential risks include:
 
-This project satisfies all assignment requirements:
-✅ NLP-focused
-✅ Unique ML model per member
-✅ Unique DL model per member
-✅ Real healthcare problem
-✅ Free datasets and tools only
-✅ Can be completed by 3 students within a semester.
-#   p r e s c r i p t i o n _ E r r o r - _ d e t e n t i o n  
- #   p r e s c r i p t i o n _ E r r o r - _ d e t e n t i o n  
- 
+* Dataset bias
+* Incorrect predictions
+* False positives
+* False negatives
+* Misinterpretation of medical terminology
+* Incomplete medication knowledge
+* Differences in medical practices across countries
+
+### Risk Mitigation
+
+The system will attempt to reduce these risks by:
+
+1. Evaluating multiple ML/DL models.
+2. Using multiple evaluation metrics.
+3. Combining machine learning with rule-based validation.
+4. Providing confidence scores.
+5. Clearly communicating system limitations.
+6. Recommending professional verification.
+7. Avoiding claims of clinical accuracy.
+
+---
+
+# ⚠️ Limitations
+
+The proposed system has several limitations:
+
+* It is not a replacement for healthcare professionals.
+* The dataset may not represent all medications or medical conditions.
+* Rare medications may not be adequately represented.
+* Medical terminology can change over time.
+* Model predictions may contain false positives and false negatives.
+* The system cannot guarantee 100% accuracy.
+* Drug interaction knowledge requires continuous maintenance.
+* The MTSamples dataset is not specifically designed for prescription-error classification.
+
+---
+
+# 🚀 Future Improvements
+
+Possible future improvements include:
+
+* Integration with larger medical NLP datasets.
+* Advanced transformer models such as BERT.
+* Medical-specific language models.
+* Real-time drug interaction databases.
+* Improved Named Entity Recognition.
+* Multilingual prescription processing.
+* OCR-based handwritten prescription recognition.
+* Explainable AI techniques.
+* More comprehensive dosage validation.
+* Integration with electronic health record systems.
+* Continuous model retraining with validated data.
+
+---
+
+# 📚 Learning Outcomes
+
+Through this project, the team will gain practical experience in:
+
+* Natural Language Processing
+* Text preprocessing
+* Named Entity Recognition
+* Feature engineering
+* TF-IDF
+* Word embeddings
+* Machine Learning
+* Deep Learning
+* Model evaluation
+* Flask web development
+* Git & GitHub collaboration
+* Responsible AI
+* Healthcare NLP
+
+---
+
+# 📌 Project Status
+
+🚧 **Status: In Development**
+
+| Component             | Status         |
+| --------------------- | -------------- |
+| Project Planning      | ✅ Completed    |
+| Dataset Selection     | ✅ Completed    |
+| Data Preprocessing    | 🚧 In Progress |
+| NER / Drug Extraction | 🚧 In Progress |
+| SVM                   | 🚧 In Progress |
+| Random Forest         | 🚧 In Progress |
+| XGBoost               | 🚧 In Progress |
+| LSTM                  | 🚧 In Progress |
+| BiLSTM                | 🚧 In Progress |
+| GRU                   | 🚧 In Progress |
+| Rule-Based Validation | 🚧 In Progress |
+| Web Application       | 🚧 In Progress |
+| Model Comparison      | ⏳ Pending      |
+| Final Testing         | ⏳ Pending      |
+| Deployment            | ⏳ Pending      |
+
+---
+
+# 👨‍🎓 Academic Project
+
+This project is developed as part of the **5th Semester Natural Language Processing (NLP) module**.
+
+**Project:** Smart Prescription Error Detection Using NLP
+
+**Team Members:**
+
+* M.F.M. Afham
+* M.L. Abdullah
+* M.U. Sahy
+
+---
+
+## ⭐ Acknowledgements
+
+We acknowledge the publicly available **MTSamples Medical Transcriptions Dataset** used as a source of medical text for this academic project.
+
+---
+
+## 📄 License
+
+This project is intended primarily for **academic and educational purposes**.
+
+Before redistributing the dataset or other third-party resources, review and comply with their respective licenses and terms of use.
