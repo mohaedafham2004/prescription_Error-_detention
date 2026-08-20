@@ -167,7 +167,7 @@ class GeminiOCRModel(OCRModel):
 }"""
 
         t0 = time.perf_counter()
-        candidate_models = ["gemini-flash-latest", "gemini-3.5-flash-lite", "gemini-2.5-flash", "gemini-2.5-pro"]
+        candidate_models = ["gemini-2.5-flash", "gemini-1.5-flash"]
         if self._model_name not in candidate_models:
             candidate_models.insert(0, self._model_name)
         # deduplicate while keeping order

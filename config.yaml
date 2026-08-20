@@ -7,7 +7,7 @@
 # ── OCR Model Selection ───────────────────────────────────────
 # Options: "gemini" (Google Cloud Multimodal Vision) | "trocr" (Local PyTorch) | "cnn"
 active_ocr_model: "gemini"
-gemini_model: "gemini-flash-latest"
+gemini_model: "gemini-2.5-flash"
 
 
 
