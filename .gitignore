@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+.streamlit/secrets.toml
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+build/
+
+# ML Model weights (large binary files)
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+
+# Generated / cache directories
+debug_output/
+backups/
+__pycache__/
+
+# IDE / OS
+.DS_Store
+*.pem
+.agents/
+.claude/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
