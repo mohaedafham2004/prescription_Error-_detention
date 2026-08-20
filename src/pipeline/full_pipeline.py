@@ -126,17 +126,36 @@ def run_full_pipeline(
     t0 = time.time()
     try:
         ner = run_ner_pipeline(ocr.full_text, cfg)
+        # If Gemini multimodal already extracted structured entities, merge them if local NER is unavailable or empty
+        gemini_ents = getattr(ocr, "_gemini_entities", None)
+        if gemini_ents and any(gemini_ents.values()):
+            if not any(ner.get("entities", {}).values()) or not ner.get("ner_available"):
+                ner["entities"] = gemini_ents
+                ner["ner_available"] = True
+                ner["ner_model_used"] = "gemini (multimodal vision)"
+
         _log(f"  NER done in {time.time()-t0:.1f}s — "
              f"available={ner['ner_available']}, "
              f"missing={ner['missing']}")
     except Exception as e:
-        ner = {
-            "entities":      {"MEDICINE": [], "DOSAGE": [], "FREQUENCY": [], "DURATION": []},
-            "raw_spans":     [],
-            "missing":       ["MEDICINE", "DOSAGE", "FREQUENCY", "DURATION"],
-            "ner_available": False,
-            "error":         f"NER stage error: {e}",
-        }
+        gemini_ents = getattr(ocr, "_gemini_entities", None)
+        if gemini_ents and any(gemini_ents.values()):
+            ner = {
+                "entities":      gemini_ents,
+                "raw_spans":     [],
+                "missing":       [k for k, v in gemini_ents.items() if not v],
+                "ner_available": True,
+                "ner_model_used": "gemini (multimodal vision)",
+            }
+        else:
+            ner = {
+                "entities":      {"MEDICINE": [], "DOSAGE": [], "FREQUENCY": [], "DURATION": []},
+                "raw_spans":     [],
+                "missing":       ["MEDICINE", "DOSAGE", "FREQUENCY", "DURATION"],
+                "ner_available": False,
+                "error":         f"NER stage error: {e}",
+            }
+
 
     # ── Stage 3: Error detection ──────────────────────────────────────────────
     t0 = time.time()
@@ -173,7 +192,9 @@ def run_full_pipeline(
     # ── Stage 5: Overall risk assessment ─────────────────────────────────────
     from src.pipeline.risk_assessment import assess_risk
     issues_list = issues_to_dict_list(issues)
-    risk = assess_risk(issues_list, ocr_confidence=ocr.mean_confidence)
+    has_entities = any(bool(v) for v in ner.get("entities", {}).values())
+    ner_confidence = 0.94 if (ner.get("ner_available") and has_entities) else (0.80 if ner.get("ner_available") else 0.0)
+    risk = assess_risk(issues_list, ocr_confidence=ocr.mean_confidence, ner_confidence=ner_confidence)
 
     # ── Assemble output ───────────────────────────────────────────────────────
     total = round(time.time() - t_total, 2)

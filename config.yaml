@@ -5,8 +5,12 @@
 # No code changes required.
 
 # ── OCR Model Selection ───────────────────────────────────────
-# Options: "trocr" | "cnn" | "ensemble" (future)
-active_ocr_model: "trocr"
+# Options: "gemini" (Google Cloud Multimodal Vision) | "trocr" (Local PyTorch) | "cnn"
+active_ocr_model: "gemini"
+gemini_model: "gemini-flash-latest"
+
+
+
 
 # ── CNN Character Recognition Settings ────────────────────────
 cnn_model_path: "models/cnn_character/best_model.pt"
@@ -57,5 +61,10 @@ error_rules_dir: "data/error_rules"
 # Minimum fuzzy-match score (0-100) to accept a medicine name as a known spelling
 fuzzy_match_threshold: 80
 
+# ── Gemini Multimodal Verification ────────────────────────────
+gemini_model: "gemini-2.5-flash"
+gemini_verification_enabled: true
+
 # ── Dashboard ─────────────────────────────────────────────────
 dashboard_title: "Smart Prescription Error Detection"
+
