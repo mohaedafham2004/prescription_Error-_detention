@@ -1,0 +1,290 @@
+@import "tailwindcss";
+
+:root {
+  /* ── Light Theme Palette ──────────────────────────────────────────────── */
+  --bg-base: #F8FAFC;
+  --surface-card: #FFFFFF;
+  --surface-border: #E2E8F0;
+  --surface-subtle: #F1F5F9;
+  
+  --primary-accent: #0284C7;
+  --primary-accent-hover: #0369A1;
+  --primary-subtle: #E0F2FE;
+  
+  --success-accent: #059669;
+  --success-subtle: #DCFCE7;
+  
+  --warning-accent: #D97706;
+  --warning-subtle: #FEF3C7;
+  
+  --error-accent: #DC2626;
+  --error-subtle: #FEE2E2;
+  
+  --text-body: #0F172A;
+  --text-muted: #64748B;
+  --nav-bg: rgba(248, 250, 252, 0.88);
+  --card-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+  --glow-color: rgba(2, 132, 199, 0.05);
+  --scrollbar-track: #F1F5F9;
+  --scrollbar-thumb: #CBD5E1;
+}
+
+.dark {
+  /* ── Dark Theme Palette ───────────────────────────────────────────────── */
+  --bg-base: #0B1120;
+  --surface-card: #131B2E;
+  --surface-border: #1E2A44;
+  --surface-subtle: #0F172A;
+  
+  --primary-accent: #38BDF8;
+  --primary-accent-hover: #0EA5E9;
+  --primary-subtle: rgba(56, 189, 248, 0.12);
+  
+  --success-accent: #34D399;
+  --success-subtle: rgba(52, 211, 153, 0.12);
+  
+  --warning-accent: #FBBF24;
+  --warning-subtle: rgba(251, 191, 36, 0.12);
+  
+  --error-accent: #F87171;
+  --error-subtle: rgba(248, 113, 113, 0.12);
+  
+  --text-body: #E2E8F0;
+  --text-muted: #94A3B8;
+  --nav-bg: rgba(11, 17, 32, 0.88);
+  --card-shadow: none;
+  --glow-color: rgba(56, 189, 248, 0.07);
+  --scrollbar-track: #0B1120;
+  --scrollbar-thumb: #1E2A44;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-body);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Subtle glowing background aura */
+.bg-radial-glow {
+  background: radial-gradient(circle at 50% 0%, var(--glow-color) 0%, transparent 65%);
+}
+
+/* Monospace document box */
+.font-mono-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* ── Dark Mode Overrides (Navy-Black Base #0B1120 & Slate Surface #131B2E) ── */
+html.dark {
+  background-color: #0B1120;
+
+  /* Card Surfaces */
+  .bg-slate-900,
+  .bg-slate-900\/70,
+  .bg-slate-900\/60,
+  .bg-slate-900\/80,
+  .bg-slate-900\/90 {
+    background-color: #131B2E !important;
+  }
+
+  .bg-slate-950,
+  .bg-slate-950\/40,
+  .bg-slate-950\/50,
+  .bg-slate-950\/60,
+  .bg-slate-950\/70,
+  .bg-slate-950\/80,
+  .bg-slate-950\/85,
+  .bg-slate-950\/90 {
+    background-color: #0B1120 !important;
+  }
+
+  /* 1px Borders */
+  .border-slate-800,
+  .border-slate-800\/80,
+  .border-slate-700,
+  .border-slate-700\/70,
+  .border-slate-700\/50 {
+    border-color: #1E2A44 !important;
+  }
+
+  /* Text colors */
+  .text-white,
+  .text-slate-100,
+  .text-slate-200 {
+    color: #E2E8F0 !important;
+  }
+
+  .text-slate-300 {
+    color: #CBD5E1 !important;
+  }
+
+  .text-slate-400,
+  .text-slate-500 {
+    color: #94A3B8 !important;
+  }
+
+  /* Primary Accent Overrides */
+  .text-sky-400,
+  .text-sky-300 {
+    color: #38BDF8 !important;
+  }
+
+  /* Success Overrides */
+  .text-teal-400,
+  .text-emerald-400 {
+    color: #34D399 !important;
+  }
+
+  /* Warning Overrides */
+  .text-amber-400,
+  .text-amber-300 {
+    color: #FBBF24 !important;
+  }
+
+  /* Error Overrides */
+  .text-rose-400,
+  .text-red-400 {
+    color: #F87171 !important;
+  }
+
+  /* Header & Navigation */
+  header {
+    background-color: rgba(11, 17, 32, 0.88) !important;
+    border-color: #1E2A44 !important;
+  }
+
+  /* Hover states */
+  .hover\:bg-slate-800:hover,
+  .hover\:bg-slate-800\/40:hover,
+  .hover\:bg-slate-900\/50:hover {
+    background-color: #1A243B !important;
+  }
+}
+
+/* ── Light Mode Overrides (#F8FAFC Base & #FFFFFF Cards) ──────────────────── */
+html:not(.dark) {
+  background-color: #F8FAFC;
+
+  /* Card Surfaces */
+  .bg-slate-900,
+  .bg-slate-900\/70,
+  .bg-slate-900\/60,
+  .bg-slate-900\/80,
+  .bg-slate-900\/90 {
+    background-color: #FFFFFF !important;
+  }
+
+  .bg-slate-950,
+  .bg-slate-950\/40,
+  .bg-slate-950\/50,
+  .bg-slate-950\/60,
+  .bg-slate-950\/70,
+  .bg-slate-950\/80,
+  .bg-slate-950\/85,
+  .bg-slate-950\/90 {
+    background-color: #F8FAFC !important;
+  }
+
+  /* Borders */
+  .border-slate-800,
+  .border-slate-800\/80,
+  .border-slate-700,
+  .border-slate-700\/70,
+  .border-slate-700\/50 {
+    border-color: #E2E8F0 !important;
+  }
+
+  /* Text colors */
+  .text-white,
+  .text-slate-100,
+  .text-slate-200 {
+    color: #0F172A !important;
+  }
+
+  .text-slate-300 {
+    color: #334155 !important;
+  }
+
+  .text-slate-400,
+  .text-slate-500 {
+    color: #64748B !important;
+  }
+
+  /* Primary Accent Overrides */
+  .text-sky-400,
+  .text-sky-300 {
+    color: #0284C7 !important;
+  }
+
+  .bg-sky-600 {
+    background-color: #0284C7 !important;
+  }
+
+  .hover\:bg-sky-500:hover {
+    background-color: #0369A1 !important;
+  }
+
+  /* Success Overrides */
+  .text-teal-400,
+  .text-emerald-400 {
+    color: #059669 !important;
+  }
+
+  /* Warning Overrides */
+  .text-amber-400,
+  .text-amber-300 {
+    color: #D97706 !important;
+  }
+
+  /* Error Overrides */
+  .text-rose-400,
+  .text-red-400 {
+    color: #DC2626 !important;
+  }
+
+  /* Header & Navigation */
+  header {
+    background-color: rgba(248, 250, 252, 0.88) !important;
+    border-color: #E2E8F0 !important;
+  }
+
+  /* Hover states */
+  .hover\:bg-slate-800:hover,
+  .hover\:bg-slate-800\/40:hover,
+  .hover\:bg-slate-900\/50:hover {
+    background-color: #F1F5F9 !important;
+  }
+
+  .hover\:text-slate-200:hover,
+  .hover\:text-white:hover {
+    color: #0F172A !important;
+  }
+
+  /* Card shadow in light mode */
+  .shadow-xl,
+  .shadow-lg {
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.04) !important;
+  }
+}
+
+/* ── Custom Scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

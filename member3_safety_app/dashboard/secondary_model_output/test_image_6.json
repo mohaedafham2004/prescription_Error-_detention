@@ -1,0 +1,17 @@
+{
+  "image": "test_image_6.jpeg",
+  "medications": [
+    {
+      "drug": "Aspirin",
+      "strength": "75mg",
+      "frequency": "OD",
+      "duration": null
+    },
+    {
+      "drug": "Pantoprazole",
+      "strength": "40mg",
+      "frequency": "OD",
+      "duration": null
+    }
+  ]
+}

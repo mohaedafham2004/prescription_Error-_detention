@@ -1,0 +1,108 @@
+{
+  "generated_at": "2026-08-16T14:11:53.424483Z",
+  "mode": "hybrid",
+  "fuzzy_threshold": 70,
+  "predictions": [
+    {
+      "medicines": [],
+      "dosage": null,
+      "frequency": null,
+      "duration": null,
+      "raw_text": "1 553",
+      "confidence": 0.39259401708841324,
+      "engine": "trocr_lowconf",
+      "image": "test_image_1.jpeg",
+      "elapsed_s": 14.37
+    },
+    {
+      "medicines": [],
+      "dosage": null,
+      "frequency": null,
+      "duration": null,
+      "raw_text": "0 0 -",
+      "confidence": 0.39802269637584686,
+      "engine": "trocr_lowconf",
+      "image": "test_image_2.jpeg",
+      "elapsed_s": 1.87
+    },
+    {
+      "medicines": [],
+      "dosage": null,
+      "frequency": null,
+      "duration": null,
+      "raw_text": "0 0",
+      "confidence": 0.4370606591304143,
+      "engine": "trocr_lowconf",
+      "image": "test_image_3.jpeg",
+      "elapsed_s": 1.49
+    },
+    {
+      "medicines": [],
+      "dosage": null,
+      "frequency": null,
+      "duration": null,
+      "raw_text": "to join",
+      "confidence": 0.31023837874333066,
+      "engine": "trocr_lowconf",
+      "image": "test_image_4.jpeg",
+      "elapsed_s": 2.06
+    },
+    {
+      "medicines": [],
+      "dosage": null,
+      "frequency": null,
+      "duration": null,
+      "raw_text": "last",
+      "confidence": 0.09689216315746307,
+      "engine": "trocr_lowconf",
+      "image": "test_image_5.jpeg",
+      "elapsed_s": 1.31
+    },
+    {
+      "medicines": [],
+      "dosage": null,
+      "frequency": null,
+      "duration": null,
+      "raw_text": "0 0000",
+      "confidence": 0.27754145363966626,
+      "engine": "trocr_lowconf",
+      "image": "test_image_6.jpeg",
+      "elapsed_s": 1.43
+    },
+    {
+      "medicines": [],
+      "dosage": null,
+      "frequency": null,
+      "duration": null,
+      "raw_text": "a member of the House of Representatives",
+      "confidence": 0.5030799247324467,
+      "engine": "trocr_primary",
+      "image": "test_image_7.jpeg",
+      "elapsed_s": 2.06
+    },
+    {
+      "medicines": [],
+      "dosage": null,
+      "frequency": null,
+      "duration": null,
+      "raw_text": "0 0",
+      "confidence": 0.46383504072825116,
+      "engine": "trocr_primary",
+      "image": "test_image_8.jpeg",
+      "elapsed_s": 1.18
+    },
+    {
+      "medicines": [],
+      "dosage": null,
+      "frequency": null,
+      "duration": null,
+      "raw_text": "Categories American engineers",
+      "confidence": 0.3490257069468498,
+      "engine": "trocr_lowconf",
+      "image": "test_image_9.jpeg",
+      "elapsed_s": 1.46
+    }
+  ],
+  "per_image_eval": [],
+  "aggregate": {}
+}
