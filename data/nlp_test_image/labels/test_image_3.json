@@ -1,0 +1,35 @@
+{
+  "image": "test_image_3.jpeg",
+  "medications": [
+    {
+      "drug": "Flunarizine",
+      "strength": "10mg",
+      "frequency": "OD",
+      "duration": "1 month"
+    },
+    {
+      "drug": "Diclofenac",
+      "strength": "50mg",
+      "frequency": "PRN",
+      "duration": null
+    },
+    {
+      "drug": "Domperidone",
+      "strength": "10mg",
+      "frequency": "PRN",
+      "duration": null
+    },
+    {
+      "drug": "Etoricoxib",
+      "strength": "90mg",
+      "frequency": "OD",
+      "duration": "1 week"
+    },
+    {
+      "drug": "Pantoprazole",
+      "strength": "40mg",
+      "frequency": "OD",
+      "duration": "1 month"
+    }
+  ]
+}

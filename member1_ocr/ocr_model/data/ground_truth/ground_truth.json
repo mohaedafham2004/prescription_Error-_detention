@@ -1,0 +1,384 @@
+{
+  "sample_rx.png": {
+    "image": "sample_rx.png",
+    "confidence_of_source": "verified_ground_truth",
+    "medications": [
+      {
+        "drug": "Amoxicillin",
+        "strength": "500mg",
+        "frequency": "TDS",
+        "duration": "7 days",
+        "notes": null
+      }
+    ]
+  },
+  "cardio_rx.png": {
+    "image": "cardio_rx.png",
+    "confidence_of_source": "verified_ground_truth",
+    "medications": [
+      {
+        "drug": "Atorvastatin",
+        "strength": "40mg",
+        "frequency": "OD",
+        "duration": "30 days",
+        "notes": "at bedtime"
+      },
+      {
+        "drug": "Aspirin",
+        "strength": "75mg",
+        "frequency": "OD",
+        "duration": "30 days",
+        "notes": null
+      },
+      {
+        "drug": "Clopidogrel",
+        "strength": "75mg",
+        "frequency": "OD",
+        "duration": "30 days",
+        "notes": "DAPT"
+      },
+      {
+        "drug": "Pantoprazole",
+        "strength": "40mg",
+        "frequency": "OD",
+        "duration": "15 days",
+        "notes": "before breakfast"
+      }
+    ]
+  },
+  "infection_rx.png": {
+    "image": "infection_rx.png",
+    "confidence_of_source": "verified_ground_truth",
+    "medications": [
+      {
+        "drug": "Augmentin",
+        "strength": "625mg",
+        "frequency": "twice daily",
+        "duration": "7 days",
+        "notes": null
+      },
+      {
+        "drug": "Paracetamol",
+        "strength": "650mg",
+        "frequency": "TDS",
+        "duration": "5 days",
+        "notes": "SOS"
+      },
+      {
+        "drug": "Cetirizine",
+        "strength": "10mg",
+        "frequency": "OD",
+        "duration": "5 days",
+        "notes": "at night"
+      },
+      {
+        "drug": "Salbutamol",
+        "strength": "100mcg",
+        "frequency": "PRN",
+        "duration": "10 days",
+        "notes": "2 puffs inhaler"
+      }
+    ]
+  },
+  "diabetic_care_rx.png": {
+    "image": "diabetic_care_rx.png",
+    "confidence_of_source": "verified_ground_truth",
+    "medications": [
+      {
+        "drug": "Metformin",
+        "strength": "500mg",
+        "frequency": "BD",
+        "duration": "60 days",
+        "notes": null
+      },
+      {
+        "drug": "Lisinopril",
+        "strength": "10mg",
+        "frequency": "OD",
+        "duration": "30 days",
+        "notes": null
+      },
+      {
+        "drug": "Amlodipine",
+        "strength": "5mg",
+        "frequency": "OD",
+        "duration": "30 days",
+        "notes": null
+      },
+      {
+        "drug": "Multivitamin",
+        "strength": null,
+        "frequency": "OD",
+        "duration": "30 days",
+        "notes": null
+      }
+    ]
+  },
+  "test_image_1.jpeg": {
+    "image": "test_image_1.jpeg",
+    "medications": [
+      {
+        "drug": "Aspirin",
+        "strength": "75mg",
+        "frequency": "OD",
+        "duration": null
+      },
+      {
+        "drug": "Atorvastatin",
+        "strength": "40mg",
+        "frequency": "OD",
+        "duration": null
+      },
+      {
+        "drug": "Losartan",
+        "strength": "50mg",
+        "frequency": "OD",
+        "duration": null
+      },
+      {
+        "drug": "Amlodipine",
+        "strength": null,
+        "frequency": "OD",
+        "duration": null
+      },
+      {
+        "drug": "Bisoprolol",
+        "strength": "2.5mg",
+        "frequency": "OD/BD",
+        "duration": null
+      }
+    ]
+  },
+  "test_image_2.jpeg": {
+    "image": "test_image_2.jpeg",
+    "medications": [
+      {
+        "drug": "Iron",
+        "strength": "50g",
+        "frequency": "BD",
+        "duration": null
+      }
+    ]
+  },
+  "test_image_3.jpeg": {
+    "image": "test_image_3.jpeg",
+    "medications": [
+      {
+        "drug": "Flunarizine",
+        "strength": "10mg",
+        "frequency": "OD",
+        "duration": "1 month"
+      },
+      {
+        "drug": "Diclofenac",
+        "strength": "50mg",
+        "frequency": "PRN",
+        "duration": null
+      },
+      {
+        "drug": "Domperidone",
+        "strength": "10mg",
+        "frequency": "PRN",
+        "duration": null
+      },
+      {
+        "drug": "Etoricoxib",
+        "strength": "90mg",
+        "frequency": "OD",
+        "duration": "1 week"
+      },
+      {
+        "drug": "Pantoprazole",
+        "strength": "40mg",
+        "frequency": "OD",
+        "duration": "1 month"
+      }
+    ]
+  },
+  "test_image_4.jpeg": {
+    "image": "test_image_4.jpeg",
+    "medications": [
+      {
+        "drug": "Enoxaparin",
+        "strength": "60mg",
+        "frequency": "BD",
+        "duration": "48 hours"
+      },
+      {
+        "drug": "Aspirin",
+        "strength": "75mg",
+        "frequency": "OD",
+        "duration": null
+      },
+      {
+        "drug": "Clopidogrel",
+        "strength": "75mg",
+        "frequency": "OD",
+        "duration": null
+      },
+      {
+        "drug": "Atorvastatin",
+        "strength": "40mg",
+        "frequency": "OD",
+        "duration": null
+      },
+      {
+        "drug": "Bisoprolol",
+        "strength": "2.5mg",
+        "frequency": "BD",
+        "duration": null
+      },
+      {
+        "drug": "Spironolactone",
+        "strength": "25mg",
+        "frequency": "OD",
+        "duration": null
+      },
+      {
+        "drug": "Nicorandil",
+        "strength": "10mg",
+        "frequency": "BD",
+        "duration": null
+      },
+      {
+        "drug": "Pantoprazole",
+        "strength": "40mg",
+        "frequency": "BD",
+        "duration": null
+      },
+      {
+        "drug": "Glyceryl Trinitrate",
+        "strength": "1 tab",
+        "frequency": "PRN",
+        "duration": null
+      }
+    ]
+  },
+  "test_image_5.jpeg": {
+    "image": "test_image_5.jpeg",
+    "medications": [
+      {
+        "drug": "Rabeprazole",
+        "strength": null,
+        "frequency": "HS",
+        "duration": null
+      },
+      {
+        "drug": "Deflazacort",
+        "strength": "0.5mg",
+        "frequency": "HS",
+        "duration": null
+      }
+    ]
+  },
+  "test_image_6.jpeg": {
+    "image": "test_image_6.jpeg",
+    "medications": [
+      {
+        "drug": "Aspirin",
+        "strength": "100mg",
+        "frequency": null,
+        "duration": null
+      },
+      {
+        "drug": "Pantoprazole",
+        "strength": "40mg",
+        "frequency": null,
+        "duration": null
+      },
+      {
+        "drug": "Nermigan",
+        "strength": null,
+        "frequency": "OD",
+        "duration": null
+      }
+    ]
+  },
+  "test_image_7.jpeg": {
+    "image": "test_image_7.jpeg",
+    "medications": [
+      {
+        "drug": "Atorvastatin",
+        "strength": "20mg",
+        "frequency": "OD",
+        "duration": null
+      },
+      {
+        "drug": "Gliclazide",
+        "strength": "80mg",
+        "frequency": "BD",
+        "duration": null
+      },
+      {
+        "drug": "Metformin",
+        "strength": "500mg",
+        "frequency": "BD",
+        "duration": null
+      },
+      {
+        "drug": "Insulin Mixtard",
+        "strength": "100 IU/ml",
+        "frequency": "BD",
+        "duration": null
+      }
+    ]
+  },
+  "test_image_8.jpeg": {
+    "image": "test_image_8.jpeg",
+    "medications": [
+      {
+        "drug": "Fluoxetine",
+        "strength": "20mg",
+        "frequency": "BD",
+        "duration": null
+      },
+      {
+        "drug": "Clomipramine",
+        "strength": "100mg",
+        "frequency": "OD",
+        "duration": null
+      },
+      {
+        "drug": "Mirtazapine",
+        "strength": "15mg",
+        "frequency": "OD",
+        "duration": null
+      },
+      {
+        "drug": "Risperidone",
+        "strength": "20mg",
+        "frequency": "BD",
+        "duration": null
+      },
+      {
+        "drug": "Clonazepam",
+        "strength": "1mg",
+        "frequency": "BD",
+        "duration": null
+      }
+    ]
+  },
+  "test_image_9.jpeg": {
+    "image": "test_image_9.jpeg",
+    "medications": [
+      {
+        "drug": "Acyclovir",
+        "strength": "Cream",
+        "frequency": "BD",
+        "duration": null
+      },
+      {
+        "drug": "Emollient",
+        "strength": "Cream",
+        "frequency": "TDS",
+        "duration": null
+      },
+      {
+        "drug": "Antifungal",
+        "strength": "Powder",
+        "frequency": "5 times/day",
+        "duration": "5 days"
+      }
+    ]
+  }
+}

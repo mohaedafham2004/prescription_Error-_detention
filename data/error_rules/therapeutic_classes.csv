@@ -1,0 +1,44 @@
+class_name,drug_name,severity,risk_note
+NSAIDs (Non-Steroidal Anti-Inflammatory),ibuprofen,HIGH,Concurrent use of multiple NSAIDs markedly increases gastrointestinal ulceration and bleeding risk without added analgesic efficacy.
+NSAIDs (Non-Steroidal Anti-Inflammatory),diclofenac,HIGH,Concurrent use of multiple NSAIDs markedly increases gastrointestinal ulceration and bleeding risk without added analgesic efficacy.
+NSAIDs (Non-Steroidal Anti-Inflammatory),naproxen,HIGH,Concurrent use of multiple NSAIDs markedly increases gastrointestinal ulceration and bleeding risk without added analgesic efficacy.
+NSAIDs (Non-Steroidal Anti-Inflammatory),aspirin,HIGH,Concurrent use of multiple NSAIDs markedly increases gastrointestinal ulceration and bleeding risk without added analgesic efficacy.
+NSAIDs (Non-Steroidal Anti-Inflammatory),mefenamic acid,HIGH,Concurrent use of multiple NSAIDs markedly increases gastrointestinal ulceration and bleeding risk without added analgesic efficacy.
+NSAIDs (Non-Steroidal Anti-Inflammatory),etoricoxib,HIGH,Concurrent use of multiple NSAIDs markedly increases gastrointestinal ulceration and bleeding risk without added analgesic efficacy.
+NSAIDs (Non-Steroidal Anti-Inflammatory),celecoxib,HIGH,Concurrent use of multiple NSAIDs markedly increases gastrointestinal ulceration and bleeding risk without added analgesic efficacy.
+NSAIDs (Non-Steroidal Anti-Inflammatory),ketoprofen,HIGH,Concurrent use of multiple NSAIDs markedly increases gastrointestinal ulceration and bleeding risk without added analgesic efficacy.
+Proton Pump Inhibitors (PPIs),omeprazole,MEDIUM,Multiple concurrent PPIs provide no additional acid suppression benefit and increase risk of adverse events.
+Proton Pump Inhibitors (PPIs),pantoprazole,MEDIUM,Multiple concurrent PPIs provide no additional acid suppression benefit and increase risk of adverse events.
+Proton Pump Inhibitors (PPIs),esomeprazole,MEDIUM,Multiple concurrent PPIs provide no additional acid suppression benefit and increase risk of adverse events.
+Proton Pump Inhibitors (PPIs),rabeprazole,MEDIUM,Multiple concurrent PPIs provide no additional acid suppression benefit and increase risk of adverse events.
+Proton Pump Inhibitors (PPIs),lansoprazole,MEDIUM,Multiple concurrent PPIs provide no additional acid suppression benefit and increase risk of adverse events.
+ACE Inhibitors / ARBs,lisinopril,HIGH,Dual renin-angiotensin-aldosterone blockade markedly elevates risks of severe hypotension hyperkalemia and acute renal impairment.
+ACE Inhibitors / ARBs,enalapril,HIGH,Dual renin-angiotensin-aldosterone blockade markedly elevates risks of severe hypotension hyperkalemia and acute renal impairment.
+ACE Inhibitors / ARBs,ramipril,HIGH,Dual renin-angiotensin-aldosterone blockade markedly elevates risks of severe hypotension hyperkalemia and acute renal impairment.
+ACE Inhibitors / ARBs,losartan,HIGH,Dual renin-angiotensin-aldosterone blockade markedly elevates risks of severe hypotension hyperkalemia and acute renal impairment.
+ACE Inhibitors / ARBs,valsartan,HIGH,Dual renin-angiotensin-aldosterone blockade markedly elevates risks of severe hypotension hyperkalemia and acute renal impairment.
+ACE Inhibitors / ARBs,telmisartan,HIGH,Dual renin-angiotensin-aldosterone blockade markedly elevates risks of severe hypotension hyperkalemia and acute renal impairment.
+Statins (Lipid Lowering),atorvastatin,HIGH,Multiple concurrent statins increase the risk of severe myopathy and rhabdomyolysis without additional cardiovascular benefit.
+Statins (Lipid Lowering),rosuvastatin,HIGH,Multiple concurrent statins increase the risk of severe myopathy and rhabdomyolysis without additional cardiovascular benefit.
+Statins (Lipid Lowering),simvastatin,HIGH,Multiple concurrent statins increase the risk of severe myopathy and rhabdomyolysis without additional cardiovascular benefit.
+Statins (Lipid Lowering),pravastatin,HIGH,Multiple concurrent statins increase the risk of severe myopathy and rhabdomyolysis without additional cardiovascular benefit.
+Antihistamines (H1 Blockers),cetirizine,MEDIUM,Co-prescribing multiple antihistamines increases anticholinergic load sedation and psychomotor impairment.
+Antihistamines (H1 Blockers),levocetirizine,MEDIUM,Co-prescribing multiple antihistamines increases anticholinergic load sedation and psychomotor impairment.
+Antihistamines (H1 Blockers),loratadine,MEDIUM,Co-prescribing multiple antihistamines increases anticholinergic load sedation and psychomotor impairment.
+Antihistamines (H1 Blockers),fexofenadine,MEDIUM,Co-prescribing multiple antihistamines increases anticholinergic load sedation and psychomotor impairment.
+Antihistamines (H1 Blockers),chlorpheniramine,MEDIUM,Co-prescribing multiple antihistamines increases anticholinergic load sedation and psychomotor impairment.
+Fluoroquinolone Antibiotics,ciprofloxacin,HIGH,Redundant fluoroquinolone therapy amplifies risks of tendinopathy QT prolongation and CNS adverse effects.
+Fluoroquinolone Antibiotics,levofloxacin,HIGH,Redundant fluoroquinolone therapy amplifies risks of tendinopathy QT prolongation and CNS adverse effects.
+Fluoroquinolone Antibiotics,ofloxacin,HIGH,Redundant fluoroquinolone therapy amplifies risks of tendinopathy QT prolongation and CNS adverse effects.
+Fluoroquinolone Antibiotics,moxifloxacin,HIGH,Redundant fluoroquinolone therapy amplifies risks of tendinopathy QT prolongation and CNS adverse effects.
+Macrolide Antibiotics,azithromycin,HIGH,Concurrent macrolides represent duplicate antimicrobial coverage and increase risks of QT prolongation and hepatotoxicity.
+Macrolide Antibiotics,clarithromycin,HIGH,Concurrent macrolides represent duplicate antimicrobial coverage and increase risks of QT prolongation and hepatotoxicity.
+Macrolide Antibiotics,erythromycin,HIGH,Concurrent macrolides represent duplicate antimicrobial coverage and increase risks of QT prolongation and hepatotoxicity.
+Beta Blockers,metoprolol,HIGH,Combining multiple beta blockers carries high risk of profound bradycardia heart block and hypotension.
+Beta Blockers,bisoprolol,HIGH,Combining multiple beta blockers carries high risk of profound bradycardia heart block and hypotension.
+Beta Blockers,atenolol,HIGH,Combining multiple beta blockers carries high risk of profound bradycardia heart block and hypotension.
+Beta Blockers,carvedilol,HIGH,Combining multiple beta blockers carries high risk of profound bradycardia heart block and hypotension.
+Beta Blockers,propranolol,HIGH,Combining multiple beta blockers carries high risk of profound bradycardia heart block and hypotension.
+Opioids / Central Analgesics,tramadol,HIGH,Concurrent centrally acting opioid analgesics carry substantial risk of profound CNS depression respiratory depression and overdose.
+Opioids / Central Analgesics,codeine,HIGH,Concurrent centrally acting opioid analgesics carry substantial risk of profound CNS depression respiratory depression and overdose.
+Opioids / Central Analgesics,morphine,HIGH,Concurrent centrally acting opioid analgesics carry substantial risk of profound CNS depression respiratory depression and overdose.
