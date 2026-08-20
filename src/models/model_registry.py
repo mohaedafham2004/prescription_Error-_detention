@@ -49,13 +49,15 @@ from src.models.ner_base import NERModel
 
 def _ocr_registry() -> Dict[str, Type[OCRModel]]:
     # Lazy imports — avoids loading heavy model deps at import time
-    from src.models.trocr_infer import TrOCRModel
-    from src.models.cnn_infer   import CNNCharacterModel
+    from src.models.trocr_infer  import TrOCRModel
+    from src.models.cnn_infer    import CNNCharacterModel
+    from src.models.gemini_infer import GeminiOCRModel
     return {
-        "trocr": TrOCRModel,
-        "cnn":   CNNCharacterModel,
-        # "ensemble": EnsembleModel,   ← add here when ready
+        "trocr":  TrOCRModel,
+        "cnn":    CNNCharacterModel,
+        "gemini": GeminiOCRModel,
     }
+
 
 
 _ocr_instances: Dict[tuple, OCRModel] = {}
@@ -76,8 +78,10 @@ def get_ocr_model(cfg: dict) -> OCRModel:
     use_pre = bool(cfg.get("trocr_use_pretrained", False))
     model_path = str(cfg.get("trocr_model_path", ""))
     model_name = str(cfg.get("trocr_model_name", ""))
+    gemini_model = str(cfg.get("gemini_model", "gemini-2.5-flash"))
 
-    cache_key = (name, use_pre, model_path, model_name)
+    cache_key = (name, use_pre, model_path, model_name, gemini_model)
+
 
     if cache_key in _ocr_instances:
         return _ocr_instances[cache_key]

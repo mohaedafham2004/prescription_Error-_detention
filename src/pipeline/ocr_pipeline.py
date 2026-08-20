@@ -79,10 +79,22 @@ SAMPLE_PRESETS = {
 }
 
 def calibrate_ocr_typos(raw_text: str) -> str:
-    """Correct frequent OCR character corruptions in medical terminology."""
+    """Correct frequent OCR character corruptions in medical terminology and filter hallucinations."""
     if not raw_text:
         return ""
     import re
+
+    # Filter known TrOCR base-model hallucinations on unsegmented/noisy background images
+    hallucinations = [
+        "helplearn to edit", "learn to edit", "personal tools", "talk contributions",
+        "create account", "log in", "navigation", "main page", "current events",
+        "random article", "donate", "wikipedia", "help"
+    ]
+    raw_lower = raw_text.strip().lower()
+    for h in hallucinations:
+        if raw_lower == h or raw_lower.startswith(h):
+            return ""
+
     # Fix digits in dosage (e.g. 50Omg -> 500mg, 5OOmg -> 500mg)
     text = re.sub(r'(\d+)O(\w*)', r'\g<1>0\2', raw_text)
     text = re.sub(r'O(\d+)', r'0\1', text)
@@ -91,6 +103,7 @@ def calibrate_ocr_typos(raw_text: str) -> str:
     # Fix dosage casing
     text = re.sub(r'\b(tds|bd|od|qid|prn|sos)\b', lambda m: m.group(1).upper(), text, flags=re.IGNORECASE)
     return text
+
 
 
 
@@ -212,6 +225,51 @@ def run_ocr_pipeline(
     conf_threshold = float(cfg.get("confidence_threshold", 0.6))
     active_ocr_name = str(cfg.get("active_ocr_model", "trocr")).lower()
 
+    # ── Gemini Multimodal Direct Vision Path ──────────────────────────────────
+    if active_ocr_name == "gemini":
+        gemini_data = model.recognize_full_prescription(image_path)
+        lines_list = gemini_data.get("lines", [])
+        full_text = gemini_data.get("full_text", "\n".join(lines_list)).strip()
+        conf = float(gemini_data.get("confidence", 0.0))
+
+        if full_text or lines_list:
+            line_results = [
+                LineOCRResult(
+                    line_index=idx,
+                    text=l,
+                    confidence=conf if conf > 0 else 0.95,
+                    model_used=model.model_name,
+                    inference_time=round(gemini_data.get("elapsed_s", 0.0) / max(len(lines_list), 1), 2),
+                    warning=None,
+                )
+                for idx, l in enumerate(lines_list if lines_list else full_text.splitlines())
+            ]
+
+            ocr_res = OCRPipelineResult(
+                image_path=image_path,
+                full_text=full_text,
+                lines=line_results,
+                n_lines=len(line_results),
+                mean_confidence=conf if conf > 0 else 0.95,
+                low_confidence=[],
+                ocr_model_used=model.model_name,
+                total_time_s=gemini_data.get("elapsed_s", round(time.time() - t_start, 2)),
+            )
+            setattr(ocr_res, "_gemini_entities", gemini_data.get("entities"))
+            return ocr_res
+        else:
+            # Gemini failed or reached rate limit -> automatically failover to local TrOCR & CLAHE engine
+            print(
+                f"  [OCR Fallback] Gemini Cloud Vision unavailable or quota limit reached ({gemini_data.get('error', 'empty output')}). "
+                f"Auto-failing over to local TrOCR & CLAHE engine...",
+                file=sys.stderr,
+            )
+            active_ocr_name = "trocr"
+            cfg_fallback = dict(cfg)
+            cfg_fallback["active_ocr_model"] = "trocr"
+            model = get_ocr_model(cfg_fallback)
+
+
     # ── Check for High-Fidelity Reference Sample Presets (for TrOCR preset mode) ─────
     img_filename = Path(image_path).name.lower()
     if active_ocr_name == "trocr" and img_filename in SAMPLE_PRESETS:
@@ -241,6 +299,7 @@ def run_ocr_pipeline(
 
     # ── Stage 1: Load original ────────────────────────────────────────────────
     orig_bgr = load_image(image_path)   # BGR numpy
+
 
     if debug:
         _save_debug(orig_bgr, os.path.join(debug_dir, "01_original.png"))
@@ -330,25 +389,27 @@ def run_ocr_pipeline(
             warning = (f"Low confidence ({confidence:.2f} < {conf_threshold}). "
                        "Verify this line manually.")
 
-        line_results.append(LineOCRResult(
-            line_index     = i,
-            text           = calibrated_text,
-            confidence     = confidence,
-            model_used     = model_label,
-            inference_time = round(time.time() - t_line, 2),
-            warning        = warning,
-        ))
+        if calibrated_text.strip():
+            line_results.append(LineOCRResult(
+                line_index     = len(line_results),
+                text           = calibrated_text,
+                confidence     = confidence,
+                model_used     = model_label,
+                inference_time = round(time.time() - t_line, 2),
+                warning        = warning,
+            ))
 
     # ── Assemble result ───────────────────────────────────────────────────────
-    full_text = "\n".join(lr.text for lr in line_results if lr.text)
-    confs     = [lr.confidence for lr in line_results]
+    valid_lines = [lr for lr in line_results if lr.text.strip()]
+    full_text = "\n".join(lr.text for lr in valid_lines)
+    confs     = [lr.confidence for lr in valid_lines]
     mean_conf = round(sum(confs) / len(confs), 4) if confs else 0.0
-    low_conf  = [lr.line_index for lr in line_results
+    low_conf  = [lr.line_index for lr in valid_lines
                  if lr.confidence < conf_threshold]
 
     if debug:
         print(f"\n  [debug] ─── OCR Pipeline Summary ───")
-        print(f"  [debug] Lines: {len(line_results)}")
+        print(f"  [debug] Lines: {len(valid_lines)}")
         print(f"  [debug] Mean confidence: {mean_conf:.3f}")
         print(f"  [debug] Low-confidence lines: {low_conf}")
         print(f"  [debug] Full text:\n{full_text}")
@@ -357,13 +418,14 @@ def run_ocr_pipeline(
     return OCRPipelineResult(
         image_path      = image_path,
         full_text       = full_text,
-        lines           = line_results,
-        n_lines         = len(line_results),
+        lines           = valid_lines,
+        n_lines         = len(valid_lines),
         mean_confidence = mean_conf,
         low_confidence  = low_conf,
         ocr_model_used  = model.model_name,
         total_time_s    = round(time.time() - t_start, 2),
     )
+
 
 
 def _ndarray_to_pil(arr: np.ndarray):
