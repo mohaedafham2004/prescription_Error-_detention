@@ -1,0 +1,33 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Smart Prescription NLP — FastAPI Backend Dependencies (for Render / Production)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── API Server & Validation ──────────────────────────────────────────────────
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+python-multipart>=0.0.6
+pydantic>=2.0.0
+
+# ── Computer Vision & Image Processing ────────────────────────────────────────
+opencv-python-headless>=4.8.0
+Pillow>=10.0.0
+
+# ── NLP, Fuzzy Matching & Data ────────────────────────────────────────────────
+numpy>=1.24.0
+pandas>=2.0.0
+pyyaml>=6.0.0
+rapidfuzz>=3.5.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# ── Clinical PDF Audit Reports ────────────────────────────────────────────────
+reportlab>=4.0.0
+
+# ── LLM & Vision OCR (Gemini 2.5 Flash) ────────────────────────────────────────
+google-genai>=0.1.1
+
+# ── Optional Local DL Models (TrOCR / spaCy / PyTorch) ────────────────────────
+torch>=2.1.0
+transformers>=4.40.0,<5.0.0
+huggingface-hub>=0.24.0
+spacy>=3.7.0
