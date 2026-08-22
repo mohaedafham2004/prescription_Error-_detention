@@ -124,7 +124,10 @@ export default function PrescriptionAnalysisPage() {
   const [rawImageForCrop, setRawImageForCrop] = React.useState<string | null>(null);
 
   const fileInputRef = React.useRef<HTMLInputElement>(null);
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8001";
+  const DEFAULT_API_URL = process.env.NODE_ENV === "production"
+    ? "https://prescription-error-detention.onrender.com"
+    : "http://127.0.0.1:8001";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || DEFAULT_API_URL;
 
   // Fetch sample catalog on mount
   React.useEffect(() => {

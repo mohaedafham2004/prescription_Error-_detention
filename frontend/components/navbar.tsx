@@ -14,7 +14,10 @@ export function Navbar() {
   const [activeModels, setActiveModels] = React.useState<{ ocr: string; ner: string } | null>(null);
 
   React.useEffect(() => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8001";
+    const DEFAULT_API_URL = process.env.NODE_ENV === "production"
+      ? "https://prescription-error-detention.onrender.com"
+      : "http://127.0.0.1:8001";
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || DEFAULT_API_URL;
     
     async function checkHealth() {
       try {

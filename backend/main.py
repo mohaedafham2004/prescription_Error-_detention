@@ -50,15 +50,17 @@ origins = [
     "http://localhost:8001",
     "http://127.0.0.1:8001",
     "https://prescription-error-detention.vercel.app",
+    "https://prescription-error-detention.onrender.com",
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_origin_regex=r"https://.*\.vercel\.app",
+    allow_origin_regex=r"https://.*\.vercel\.app|https://.*\.onrender\.com",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 # ── Include Routers ────────────────────────────────────────────────────────
@@ -71,7 +73,9 @@ app.include_router(samples_router)
 @app.get("/", response_model=HealthStatus, tags=["Root"])
 async def root():
     return HealthStatus(
-        status="healthy",
+        status="ok",
+        active_ocr_model="gemini",
+        active_ner_model="spacy",
         service="Smart Prescription NLP API",
         version="1.0.0",
     )

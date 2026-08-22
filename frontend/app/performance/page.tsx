@@ -75,7 +75,10 @@ export default function ModelPerformancePage() {
   const [loading, setLoading] = React.useState<boolean>(true);
   const [error, setError] = React.useState<string | null>(null);
 
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8001";
+  const DEFAULT_API_URL = process.env.NODE_ENV === "production"
+    ? "https://prescription-error-detention.onrender.com"
+    : "http://127.0.0.1:8001";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || DEFAULT_API_URL;
 
   const fetchMetrics = React.useCallback(async () => {
     try {
