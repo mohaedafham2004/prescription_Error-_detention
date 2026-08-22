@@ -22,7 +22,7 @@ node_modules/
 out/
 build/
 
-# ML Model weights
+# ML Model weights (large binary files)
 *.pt
 *.pth
 *.bin
