@@ -124,16 +124,11 @@ export default function PrescriptionAnalysisPage() {
   const [rawImageForCrop, setRawImageForCrop] = React.useState<string | null>(null);
 
   const fileInputRef = React.useRef<HTMLInputElement>(null);
-  const DEFAULT_API_URL = process.env.NODE_ENV === "production"
-    ? "https://prescription-error-detention.onrender.com"
-    : "http://127.0.0.1:8001";
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || DEFAULT_API_URL;
-
   // Fetch sample catalog on mount
   React.useEffect(() => {
     async function loadSamples() {
       try {
-        const res = await fetch(`${apiUrl}/api/samples`);
+        const res = await fetch(`/api/samples`);
         if (res.ok) {
           const data = await res.json();
           setSamples(data);
@@ -173,7 +168,7 @@ export default function PrescriptionAnalysisPage() {
       }
     }
     loadSamples();
-  }, [apiUrl]);
+  }, []);
 
   // Handle custom file selection
   const handleFileChange = (file: File) => {
@@ -234,7 +229,7 @@ export default function PrescriptionAnalysisPage() {
       setResult(null);
       setSelectedMonograph(null);
 
-      const res = await fetch(`${apiUrl}/api/sample-image/${sample.id}`);
+      const res = await fetch(`/api/sample-image/${sample.id}`);
       if (!res.ok) {
         throw new Error("Could not load sample prescription from backend.");
       }
@@ -283,7 +278,7 @@ export default function PrescriptionAnalysisPage() {
         formData.append("file", selectedFile);
       }
 
-      const res = await fetch(`${apiUrl}/api/analyze`, {
+      const res = await fetch(`/api/analyze`, {
         method: "POST",
         body: formData,
       });

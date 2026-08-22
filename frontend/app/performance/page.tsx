@@ -75,16 +75,11 @@ export default function ModelPerformancePage() {
   const [loading, setLoading] = React.useState<boolean>(true);
   const [error, setError] = React.useState<string | null>(null);
 
-  const DEFAULT_API_URL = process.env.NODE_ENV === "production"
-    ? "https://prescription-error-detention.onrender.com"
-    : "http://127.0.0.1:8001";
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || DEFAULT_API_URL;
-
   const fetchMetrics = React.useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
-      const res = await fetch(`${apiUrl}/api/metrics`);
+      const res = await fetch(`/api/metrics`);
       if (!res.ok) {
         throw new Error(`Failed to fetch metrics (${res.status})`);
       }
@@ -95,7 +90,7 @@ export default function ModelPerformancePage() {
     } finally {
       setLoading(false);
     }
-  }, [apiUrl]);
+  }, []);
 
   React.useEffect(() => {
     fetchMetrics();

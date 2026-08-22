@@ -14,14 +14,9 @@ export function Navbar() {
   const [activeModels, setActiveModels] = React.useState<{ ocr: string; ner: string } | null>(null);
 
   React.useEffect(() => {
-    const DEFAULT_API_URL = process.env.NODE_ENV === "production"
-      ? "https://prescription-error-detention.onrender.com"
-      : "http://127.0.0.1:8001";
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || DEFAULT_API_URL;
-    
     async function checkHealth() {
       try {
-        const res = await fetch(`${apiUrl}/api/health`, { method: "GET" });
+        const res = await fetch(`/api/health`, { method: "GET" });
         if (res.ok) {
           const data = await res.json();
           setBackendStatus("online");
@@ -98,7 +93,7 @@ export function Navbar() {
 
           {/* FastAPI Swagger Link */}
           <a
-            href="http://localhost:8000/docs"
+          href="https://prescription-error-detention.onrender.com/docs"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-[#131B2E] border border-slate-200 dark:border-[#1E2A44] text-slate-700 dark:text-[#E2E8F0] hover:text-[#0284C7] dark:hover:text-[#38BDF8] hover:border-sky-500/40 text-xs font-medium transition-all shadow-sm"
