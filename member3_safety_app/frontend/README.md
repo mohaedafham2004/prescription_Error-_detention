@@ -1,4 +1,4 @@
-# RxAssist — Modern Next.js Frontend
+# Safe Prescription — Modern Next.js Frontend
 
 Modern clinical prescription analysis UI built with **Next.js 14+ (App Router)**, **TypeScript**, **Tailwind CSS**, **shadcn/ui**, and **Recharts**.
 

@@ -96,8 +96,8 @@ class GeminiOCRModel(OCRModel):
         else:
             raise TypeError(f"Unsupported image type: {type(image)}")
 
-        # Resize large scans for fast upload
-        max_dim = 1600
+        # Resize large scans for fast upload (<0.1s)
+        max_dim = 1000
         if max(img.size) > max_dim:
             img.thumbnail((max_dim, max_dim), PILImage.Resampling.LANCZOS)
         return img
@@ -113,10 +113,18 @@ class GeminiOCRModel(OCRModel):
 
         try:
             if self._sdk_type == "google-genai":
+                from google.genai import types
+                try:
+                    cfg = types.GenerateContentConfig(
+                        temperature=0.0,
+                        thinking_config=types.ThinkingConfig(thinking_budget=0),
+                    )
+                except Exception:
+                    cfg = types.GenerateContentConfig(temperature=0.0)
                 response = self.client.models.generate_content(
                     model=self._model_name,
                     contents=[pil_img, prompt],
-                    config=dict(temperature=0.0),
+                    config=cfg,
                 )
                 text = response.text.strip() if response.text else ""
             else:
@@ -167,7 +175,7 @@ class GeminiOCRModel(OCRModel):
 }"""
 
         t0 = time.perf_counter()
-        candidate_models = ["gemini-2.5-flash", "gemini-1.5-flash"]
+        candidate_models = ["gemini-2.5-flash"]
         if self._model_name not in candidate_models:
             candidate_models.insert(0, self._model_name)
         # deduplicate while keeping order
@@ -177,14 +185,24 @@ class GeminiOCRModel(OCRModel):
         for m in candidate_models:
             try:
                 if self._sdk_type == "google-genai":
-                    response = self.client.models.generate_content(
-                        model=m,
-                        contents=[pil_img, user_prompt],
-                        config=dict(
+                    from google.genai import types
+                    try:
+                        cfg = types.GenerateContentConfig(
                             system_instruction=system_instruction,
                             response_mime_type="application/json",
                             temperature=0.0,
-                        ),
+                            thinking_config=types.ThinkingConfig(thinking_budget=0),
+                        )
+                    except Exception:
+                        cfg = types.GenerateContentConfig(
+                            system_instruction=system_instruction,
+                            response_mime_type="application/json",
+                            temperature=0.0,
+                        )
+                    response = self.client.models.generate_content(
+                        model=m,
+                        contents=[pil_img, user_prompt],
+                        config=cfg,
                     )
                     raw_text = response.text.strip() if response.text else ""
                 else:

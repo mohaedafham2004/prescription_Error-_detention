@@ -54,7 +54,7 @@ export function Navbar() {
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-extrabold text-base tracking-tight text-slate-900 dark:text-white group-hover:text-[#0284C7] dark:group-hover:text-[#38BDF8] transition-colors">
-                  RxAssist
+                  Safe Prescription
                 </span>
                 <Badge variant="outline" className="text-[10px] px-1.5 py-0 border-sky-500/30 text-[#0284C7] dark:text-[#38BDF8]">
                   NLP v1.0

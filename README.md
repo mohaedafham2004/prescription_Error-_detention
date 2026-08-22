@@ -436,6 +436,62 @@ This project satisfies all assignment requirements:
 ✅ Real healthcare problem
 ✅ Free datasets and tools only
 ✅ Can be completed by 3 students within a semester.
-#   p r e s c r i p t i o n _ E r r o r - _ d e t e n t i o n  
- #   p r e s c r i p t i o n _ E r r o r - _ d e t e n t i o n  
+#   p r e s c r i p t i o n _ E r r o r - _ d e t e n t i o n 
  
+ #   p r e s c r i p t i o n _ E r r o r - _ d e t e n t i o n 
+ 
+ 
+
+---
+
+## Project Structure & Architecture
+
+`	ext
+prescription_Error-_detention/
+├── backend/                          ← FastAPI app (deploys to Render)
+│   ├── main.py                       ← FastAPI entrypoint (app = FastAPI())
+│   ├── requirements.txt              ← Python deps ONLY for backend
+│   ├── .env.example                  ← template for secrets (no real keys)
+│   ├── .gitignore                    ← ignore .env, __pycache__, venv
+│   ├── app/
+│   │   ├── ocr/                      ← Member 1: Afham's module
+│   │   │   ├── preprocessing.py      ← CLAHE, deskew, binarization
+│   │   │   ├── gemini_vision.py      ← Gemini 2.5 Flash calls
+│   │   │   ├── trocr_fallback.py     ← keep isolated, lazy-loaded
+│   │   │   └── typo_calibration.py
+│   │   ├── ner/                      ← Member 2: Abdullah's module
+│   │   │   ├── extractor.py          ← spaCy + HF ClinicalNER
+│   │   │   └── models/
+│   │   │       └── ner_model/        ← trained spaCy model (check size!)
+│   │   ├── safety/                   ← Member 3: Sahy's module
+│   │   │   ├── fuzzy_match.py
+│   │   │   ├── dosage_check.py
+│   │   │   ├── interaction_check.py
+│   │   │   └── risk_scoring.py
+│   │   ├── data/                     ← the CSVs
+│   │   │   ├── known_medicines.csv
+│   │   │   ├── dosage_ranges.csv
+│   │   │   ├── interactions.csv
+│   │   │   └── therapeutic_classes.csv
+│   │   ├── reports/
+│   │   │   └── pdf_generator.py
+│   │   └── routers/
+│   │       ├── analyze.py            ← POST /analyze endpoint
+│   │       ├── samples.py
+│   │       ├── metrics.py
+│   │       └── health.py             ← GET /health (for keep-alive ping)
+│   └── tests/
+│
+├── frontend/                         ← Next.js app (deploys to Vercel)
+│   ├── package.json
+│   ├── next.config.js
+│   ├── .env.local.example
+│   ├── app/                          ← Next.js 15 app router
+│   ├── components/
+│   │   ├── ImageCropper.tsx
+│   │   ├── RiskGauge.tsx
+│   │   └── MonographSidebar.tsx
+│   └── public/
+│
+└── README.md
+`

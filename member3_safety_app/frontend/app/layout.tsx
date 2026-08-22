@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "RxAssist · Smart Prescription Error Detection NLP",
+  title: "Safe Prescription · Smart Prescription Error Detection NLP",
   description:
     "AI-assisted clinical prescription analysis pipeline: handwriting OCR transcription, clinical NER entity extraction, and automated drug safety verification.",
 };

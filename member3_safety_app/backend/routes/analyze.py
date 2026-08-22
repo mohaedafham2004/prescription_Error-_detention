@@ -159,12 +159,14 @@ async def analyze_prescription(
                 temp_path = tmp.name
             target_image_path = temp_path
 
-        # Run pipeline
+        # Run pipeline asynchronously in worker thread
         cfg_override = {"trocr_use_pretrained": cfg.get("trocr_use_pretrained", True)}
         if model:
             cfg_override["active_ocr_model"] = model.lower().strip()
 
-        result = run_full_pipeline(
+        import asyncio
+        result = await asyncio.to_thread(
+            run_full_pipeline,
             target_image_path,
             cfg_override=cfg_override,
             verbose=False,
