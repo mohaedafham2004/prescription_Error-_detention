@@ -17,7 +17,7 @@ if str(_ROOT) not in sys.path:
 from src.models.model_registry import get_ner_model
 
 try:
-    from member2_nlp.ner_pipeline.ner_pipeline import run_ner_pipeline, NERPipelineResult
+    from member2_nlp.ner_pipeline.ner_pipeline import run_ner_pipeline
 except ImportError:
     def run_ner_pipeline(text: str, cfg: dict) -> dict:
         """Run NER entity extraction on OCR transcribed text."""
